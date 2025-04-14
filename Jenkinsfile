@@ -8,19 +8,19 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cp sample.war /tomcat/apache-tomcat-10.1.40/webapps/'
+                sh 'cp sample.war /tomcat/webapps/'  // Corrected path!
             }
         }
     }
-	post {
-			success {
-				// Actions to perform on successful build
-				echo 'Build and deployment successful!'
-			}
-			failure {
-				// Actions to perform on build failure
-				echo 'Build or deployment failed!'
-			}
-		}
+    post {
+        success {
+            // Actions to perform on successful build
+            echo 'Build and deployment successful!'
+        }
+        failure {
+            // Actions to perform on build failure
+            echo 'Build or deployment failed!'
+        }
+    }
 }
 
